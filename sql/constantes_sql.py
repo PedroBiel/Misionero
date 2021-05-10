@@ -80,7 +80,7 @@ class Constantes:
         return self.__EXTENSION_XLS
 
     def get_extension_xlsx(self):
-        """Getter de EXTENSION_XLSX."""
+        """Getter de EXTENSION_XLSX.xxx"""
         
         # hola
 
