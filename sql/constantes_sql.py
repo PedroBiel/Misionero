@@ -19,12 +19,13 @@ class Constantes:
     
         self.__SELECCIONAR_DIRECTORIO = 'Seleccionar directorio'
         self.__ABRIR_DATOS = 'Abrir datos'
+        self.__GUARDAR_DATOS = 'Guardar datos'
         self.__TIPO_FICHEROS_DB = 'Tipo de ficheros (*.db)'
         self.__GUARDAR_EXCEL = 'Guardar hoja Excel'
         self.__TIPO_FICHEROS_CSV = 'Tipo de ficheros (*.csv)'
         self.__TIPO_FICHEROS_XLS = 'Tipo de ficheros (*.xls)'
         self.__TIPO_FICHEROS_XLSX = 'Tipo de ficheros (*.xlsx)'
-        self.__GUARDAR_DATOS = 'Guardar datos de implantaciones'
+        self.__EXTENSION_DB = 'db'
         self.__EXTENSION_CSV = 'csv'
         self.__EXTENSION_XLS = 'xls'
         self.__EXTENSION_XLSX = 'xlsx'
@@ -68,6 +69,11 @@ class Constantes:
         """Getter de GUARDAR_DATOS."""
         
         return self.__GUARDAR_DATOS
+
+    def get_extension_db(self):
+        """Getter de EXTENSION_DB."""
+
+        return self.__EXTENSION_DB
 
     def get_extension_csv(self):
         """Getter de EXTENSION_CSV."""

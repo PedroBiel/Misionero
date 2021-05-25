@@ -23,6 +23,7 @@ from PyQt5.QtWidgets import QAbstractItemView, QApplication, QMainWindow
 import qdarkstyle
 
 from fichero.cnt_fichero import CntFichero
+from fichero.dlg_tabla import DlgTabla
 from selecciona.cnt_selecciona import CntSelecciona
 from sql.cnt_sql import CntSQL
 
@@ -53,14 +54,22 @@ class MainWindow(QMainWindow):
         self.cnt_sql = CntSQL(self)
 
         # QObjects.
-        self.rbt_csv = self.radioButtonCSV
+        self.rbt_csv_coma = self.radioButtonCSVComa
+        self.rbt_csv_punto_coma = self.radioButtonCSVPuntoComa
         self.rbt_xls = self.radioButtonXLS
         self.rbt_xlsx = self.radioButtonXLSX
+        self.rbt_tbl_fich = self.radioButtonTablaFichero
+        self.rbt_tbl_db = self.radioButtonTablaBaseDatos
         self.btn_directorio = self.pushButtonDirectorio
         self.lsw_ficheros = self.listWidgetFicheros
-        self.lsw_ficheros.setSelectionMode(QAbstractItemView.ExtendedSelection)  # Permite selección múltiple.
+        # Permite selección múltiple.
+        self.lsw_ficheros.setSelectionMode(QAbstractItemView.ExtendedSelection)
+        # self.lsw_ficheros.setAcceptDrops(True)
+        # self.lsw_ficheros.setDragEnabled(True)
         self.lsw_sql = self.listWidgetToSQL
         self.lsw_sql.setSelectionMode(QAbstractItemView.ExtendedSelection)  # Permite selección múltiple.
+        # self.lsw_sql.setAcceptDrops(True)
+        # self.lsw_sql.setDragEnabled(True)
         self.btn_selecciona = self.pushButtonSelecciona
         self.btn_selecciona_todos = self.pushButtonSeleccionaTodos
         self.btn_deselecciona = self.pushButtonDeselecciona
@@ -77,6 +86,8 @@ class MainWindow(QMainWindow):
         self.ruta = ''  # Ruta del directorio con los ficheros.
         self.ficheros = []  # Lista con los fichero del directorio.
         self.ruta_nombre_db = ''  # Ruta del directorio con el nombre de la base de datos.
+        self.ficheros_db = []  # Lista con los ficheros a exportar en las tablas de la base de datos.
+        self.nombre_tabla = ''  # nombre de la tabla única.
 
         # Eventos.
         self.btn_directorio.clicked.connect(
@@ -105,6 +116,18 @@ class MainWindow(QMainWindow):
         """Salida del mensaje."""
 
         self.lbl_mensaje.setText(mensaje)
+
+    # Diálogo tabla.
+    def call_dialogo_tabla(self, tabla=None):
+        """Llama al diálogo tabla"""
+
+        self.dlg_tabla = DlgTabla(self)
+        self.dlg_tabla.show()
+
+    def get_dialogo_tabla(self):
+        """Getter del nombre de la tabla del diálogo."""
+
+        self.nombre_tabla = self.dlg_tabla.get_tabla()
 
 
 if __name__ == '__main__':

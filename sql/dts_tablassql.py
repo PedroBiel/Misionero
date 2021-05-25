@@ -72,6 +72,19 @@ class TablasSQL:
 
         return tablas
 
+    def get_modelos(self):
+        """Lita con los modelos de las bases de datos."""
+
+        modelos = []
+        for fichero in self.ficheros:
+            idx = self.idx_carcater_string(fichero)
+            fichero = self.elimina_extension(fichero, idx)
+            modelos.append(fichero)
+
+        modelos.sort()
+
+        return modelos
+
 
 if __name__ == '__main__':
 

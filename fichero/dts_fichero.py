@@ -27,12 +27,15 @@ class FicherosRuta:
     def ficheros(self):
         """Lista con los ficheros del directorio."""
 
-        os.chdir(self.ruta)
-        os.getcwd()
-        list_dir = os.listdir(self.ruta)
-        ficheros = [
-            fichero for fichero in list_dir if self.extension in fichero
-        ]
+        try:
+            os.chdir(self.ruta)
+            os.getcwd()
+            list_dir = os.listdir(self.ruta)
+            ficheros = [
+                fichero for fichero in list_dir if self.extension in fichero
+            ]
+        except EOFError as e:
+            print('EOFError: {e}')
 
         return ficheros
 

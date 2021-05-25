@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>397</width>
-    <height>357</height>
+    <height>453</height>
    </rect>
   </property>
   <property name="font">
@@ -74,7 +74,7 @@
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QRadioButton" name="radioButtonCSV">
+          <widget class="QRadioButton" name="radioButtonCSVComa">
            <property name="font">
             <font>
              <weight>50</weight>
@@ -90,7 +90,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton">
+          <widget class="QRadioButton" name="radioButtonCSVPuntoComa">
            <property name="text">
             <string>csv(;)</string>
            </property>
@@ -122,6 +122,47 @@
             </size>
            </property>
           </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>90</height>
+         </size>
+        </property>
+        <property name="title">
+         <string>Tablas</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QRadioButton" name="radioButtonTablaFichero">
+           <property name="toolTip">
+            <string>Por cada fichero se crea una tabla diferente dentro de la base de datos.</string>
+           </property>
+           <property name="statusTip">
+            <string/>
+           </property>
+           <property name="text">
+            <string>Una tabla por fichero.</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButtonTablaBaseDatos">
+           <property name="toolTip">
+            <string>Todos los ficheros se agrupan en una única tabla dentro de la base de datos.</string>
+           </property>
+           <property name="text">
+            <string>Todos los ficheros en una única tabla.</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
